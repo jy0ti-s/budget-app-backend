@@ -4,12 +4,12 @@ const express = require('express');
 const transactions = express.Router();
 const transactionsArray = require('../models/transactions');
 
-//INDEX
+//Index
 transactions.get('/', (req, res) => {
   res.json(transactionsArray);
 });
 
-//UPDATE
+//Update
 transactions.put('/:arrayIndex', (req, res) => {
   if (transactionsArray[req.params.arrayIndex]) {
     transactionsArray[req.params.arrayIndex] = req.body;
@@ -19,7 +19,7 @@ transactions.put('/:arrayIndex', (req, res) => {
   }
 });
 
-//SHOW
+//Show
 transactions.get('/:index', (req, res) => {
   if (transactionsArray[req.params.index]) {
     res.json(transactionsArray[req.params.index]);
@@ -28,13 +28,13 @@ transactions.get('/:index', (req, res) => {
   }
 });
 
-//DESTROY
+//Destroy
 transactions.delete('/:id', (req, res) => {
   const deletedTransaction = transactionsArray.splice(req.params.indexArray, 1);
   res.status(200).json(deletedTransaction);
 });
 
-// CREATE
+//create
 transactions.post('/new', (req, res) => {
   transactionsArray.unshift(req.body);
   res.json(transactionsArray);

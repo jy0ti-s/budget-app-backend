@@ -44,7 +44,7 @@ module.exports = [
   },
   {
     item_name: 'Electric',
-    amount: -50,
+    amount: -70,
     date: '03/15/2023',
     from: 'Con Ed',
     category: 'Utilies',
